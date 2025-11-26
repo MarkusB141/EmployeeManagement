@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="main.js" defer></script>
+    <!-- type="module" ermöglicht es mit import/export zu arbeiten (defer normal wegen module nicht nötig)-->
+    <!-- https://www.w3schools.com/js/js_modules.asp -->
+    <title>Employee Management</title>
+</head>
+<body>
+    <h1>Employee Management</h1>
+
+    <label for="employeeDiv">Employees:</label>
+    <div id="employeeDiv">
+        <ul id="employeeUl"></ul>
+    </div>
+
+    <label for="addDiv">Add Employee</label>
+    <div id="addDiv">
+        <label for="employeeIdInput">ID: </label>
+        <input type="number" id="employeeIdInput"><br>
+        <label for="firstnameInput">First name: </label>
+        <input type="text" id="firstnameInput"><br>
+        <label for="lastnameInput">Last name: </label>
+        <input type="text" id="lastnameInput"><br>
+        <label for="roleInput">Role: </label>
+        <input type="text" id="roleInput"><br>
+        <label for="salaryInput">Salary: </label>
+        <input type="number" id="salaryInput"><br>
+        <button id="addButton">ADD</button>
+    </div>
+
+</body>
+</html>
