@@ -17,15 +17,15 @@ export class EmployeeListDAO{
     saveAll(employeeList){
         // da unsere Liste Private Attribute hat muss ich eine neue Liste erstellen mit einfachen Objekten
         // .map erzeugt ein neues Array indem es über jeden Index geht
-        const plainList = employeeList.map(e => ({
-            id: e.id,
-            firstname: e.firstname,
-            lastname: e.lastname,
-            role: e.role,
-            salary: e.salary
-        }));
+        // const plainList = employeeList.map(e => ({
+        //     id: e.id,
+        //     firstname: e.firstname,
+        //     lastname: e.lastname,
+        //     role: e.role,
+        //     salary: e.salary
+        // }));
         // Array in einen JSON string umwandeln
-        const json = JSON.stringify(plainList);
+        const json = JSON.stringify(employeeList);
         // In Local Storage speichern
         localStorage.setItem("employees", json);
     }

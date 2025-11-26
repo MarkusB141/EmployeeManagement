@@ -47,4 +47,13 @@ export class Employee {
             this.#salary = salary;
         }
     }
+    toJSON(){
+        return {
+            id: this.#id,
+            firstname: this.#firstname,
+            lastname: this.#lastname,
+            salary: this.#salary,
+            role: this.#role
+        };
+    }
 }

@@ -69,7 +69,7 @@ export class EmployeeView{
 
         const emp = list[i];
         const li = document.createElement("li"); // li erstellen
-        li.textContent = emp.firstname + " " + emp.lastname + " "; //Text einfügen
+        li.textContent = "ID:" + emp.id + " " +emp.firstname + " " + emp.lastname + " "; //Text einfügen
 
         const editBtn = document.createElement("button"); // edit Button erstellen
         editBtn.textContent = "edit"; //Text einfügen
