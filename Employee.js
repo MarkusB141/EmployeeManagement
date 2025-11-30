@@ -16,30 +16,39 @@ export class Employee {
             this.#salary = salary;
         }
     }
+
     get id(){
         return this.#id;
     }
+
     get firstname(){
         return this.#firstname;
     }
+
     get lastname(){
         return this.#lastname;
     }
+
     get role(){
         return this.#role;
     }
+
     get salary(){
         return this.#salary;
     }
+
     set firstname(firstname){
         this.#firstname = firstname;
     }
+
     set lastname(lastname){
         this.#lastname = lastname;
     }
+
     set role(role){
         this.#role = role;
     }
+
     set salary(salary){
         if(salary < 0){
             throw new Error('Salary darf nicht negativ sein!');
@@ -47,6 +56,10 @@ export class Employee {
             this.#salary = salary;
         }
     }
+    
+    // toJSON Methode ist vom Vorteil, aufgrund der privaten Attribute
+    // JSON.stringify kann private Felder nicht speicher 
+    // JSON.stringify benutzt automatisch toJSON wenn vorhanden
     toJSON(){
         return {
             id: this.#id,
