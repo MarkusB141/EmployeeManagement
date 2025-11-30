@@ -7,7 +7,6 @@ export class EmployeeView{
     initialize(){
         // alle Felder weren Initialisiert
         this.employeeUl = document.getElementById("employeeUl");
-        this.id = document.getElementById("employeeIdInput");
         this.firstname = document.getElementById("firstnameInput");
         this.lastname = document.getElementById("lastnameInput");
         this.role = document.getElementById("roleInput");
@@ -15,7 +14,7 @@ export class EmployeeView{
         this.addButton = document.getElementById("addButton");
         // Button bekommt click Funktion zugewiesen
         this.addButton.addEventListener("click", () => {
-            // try catch eingebaut wegen Fehlermeldung durch this.employeeModel.addEmployee(employee) ansonsten viele Bugs
+            // try catch eingebaut wegen Fehlermeldung durch erstellen sines Employees (salary < 0)
             try{ 
                 const employeeData = this.readEmployee();
                 // Check ob Bearbeitungs-Modus oder Neu_erstellen-Modus
@@ -26,11 +25,9 @@ export class EmployeeView{
                     // Employee bearbeiten 
                     this.employeeModel.updateEmployee(this.currentIndex, employeeData);
                     this.currentIndex = null;        // Bearbeiten-Modus verlassen
-                    this.id.disabled = false;        // ID-Feld wieder freigeben
                 }
                 this.updateList();
                 // Eingabefelder leeren
-                this.id.value = "";
                 this.firstname.value = "";
                 this.lastname.value = "";
                 this.role.value = "";
@@ -45,19 +42,16 @@ export class EmployeeView{
 
     displayEmployee(emp, i){
         // Input Felder mit aktuellen emp auffüllen
-        this.id.value = emp.id;
         this.firstname.value = emp.firstname;
         this.lastname.value = emp.lastname;
         this.role.value = emp.role;
         this.salary.value = emp.salary;
         // Wechsel in Bearbeitungsmodus:
         this.currentIndex = i; // merken welcher eintrag bearbeitet wird
-        this.id.disabled = true; // zusätzliche absicherung um id nicht nachträglich zu ändern
     }
     // readEmployee gibt nur Objekt Daten zurück. Damit Model dann Objekt erstellen kann
     readEmployee(){
         return {
-            id: this.id.value,
             firstname: this.firstname.value,
             lastname: this.lastname.value,
             role: this.role.value,

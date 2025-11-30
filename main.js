@@ -4,7 +4,7 @@ import {EmployeeModel} from "./EmployeeModel.js";
 import {EmployeeListDAO} from "./EmployeeListDAO.js";
 
 function start(){
-    const employeeListDAO = new EmployeeListDAO("employees"); // key wird hier mit übergeben
+    const employeeListDAO = new EmployeeListDAO("employees", "employeeNextId"); // key wird hier mit übergeben
     const employeeModel = new EmployeeModel(employeeListDAO); // hier findet die Dependency Injection statt 
     const employeeView = new EmployeeView(employeeModel); // doa wird model injiziert, model wird view injiziert
 

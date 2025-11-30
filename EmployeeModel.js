@@ -9,22 +9,29 @@ export class EmployeeModel{
 
     // Diese Methode zusätzlich eingebaut damit Model das Objekt erstellt und nicht View
     createEmployee(employeeData){
-        return new Employee(employeeData.id, employeeData.firstname, employeeData.lastname, employeeData.role, employeeData.salary);
+        const id = this.employeeListDAO.loadId();
+        return new Employee(id, employeeData.firstname, employeeData.lastname, employeeData.role, employeeData.salary);
+    }
+
+    createUpdatedEmployee(id, employeeData){
+        return new Employee(id, employeeData.firstname, employeeData.lastname, employeeData.role, employeeData.salary);
     }
 
     addEmployee(employeeData){
-        // Prüfung auf doppelte ID
-        for(let i=0; i<this.employeeList.length; i++){
-            if(this.employeeList[i].id === employeeData.id){
-                throw new Error("Diese ID exestiert bereits")
-            }
-        }
+        // Prüfung auf doppelte ID nicht mehr nötig da automatische Id Zuweisung
+        //for(let i=0; i<this.employeeList.length; i++){
+        //    if(this.employeeList[i].id === employeeData.id){
+        //        throw new Error("Diese ID exestiert bereits")
+        //    }
+        //}
         this.employeeList.push(this.createEmployee(employeeData)); // View übergibt employee, Model pusht in Liste
         this.employeeListDAO.saveAll(this.employeeList); // DAO Speichert
     }
 
     updateEmployee(index, employeeData){
-        this.employeeList[index] = this.createEmployee(employeeData); // View übergibt index und employee, Model updated Liste
+        const oldId = this.employeeList[index].id;
+        const employee = this.createUpdatedEmployee(oldId, employeeData);
+        this.employeeList[index] = employee; // View übergibt index und employee, Model updated Liste
         this.employeeListDAO.saveAll(this.employeeList); // DAO Speichert
     }
 
