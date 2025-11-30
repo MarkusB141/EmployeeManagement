@@ -12,6 +12,7 @@ export class EmployeeView{
         this.role = document.getElementById("roleInput");
         this.salary = document.getElementById("salaryInput");
         this.addButton = document.getElementById("addButton");
+        this.totalSalOutput = document.getElementById("totalSalOutput");
         // Button bekommt click Funktion zugewiesen
         this.addButton.addEventListener("click", () => {
             // try catch eingebaut wegen Fehlermeldung durch erstellen sines Employees (salary < 0)
@@ -60,31 +61,35 @@ export class EmployeeView{
     }
 
     updateList() {
-    const list = this.employeeModel.getAllEmployees(); // Liste von Model holen
-    this.employeeUl.innerHTML = ""; // Liste im HTML leeren
+        const list = this.employeeModel.getAllEmployees(); // Liste von Model holen
+        this.employeeUl.innerHTML = ""; // Liste im HTML leeren
+        this.totalSalOutput.innerHTML = ""; // Span mit Totalsal leeren
 
-    for (let i = 0; i < list.length; i++) {
-        // Listen-Element
-        const emp = list[i];
-        const li = document.createElement("li"); // li erstellen
-        li.textContent = "ID: " + emp.id + " " +emp.firstname + " " + emp.lastname + " "; //Text einfügen
-        // Edit-Button
-        const editBtn = document.createElement("button"); // edit Button erstellen
-        editBtn.textContent = "edit"; //Text einfügen
-        editBtn.onclick = () => { // onclick Attribut zuweisen
-            this.displayEmployee(emp, i);
-        };
-        // Remove-Button
-        const removeBtn = document.createElement("button"); // remove Button erstellen
-        removeBtn.textContent = "remove"; // Text einfügen
-        removeBtn.onclick = () => { // onclick Attribut zuweisen
-            this.employeeModel.removeEmployee(i);
-            this.updateList();
-        };
-        // Elemente einfügen
-        li.appendChild(editBtn); // Buttons nach Li einfügen
-        li.appendChild(removeBtn);
-        this.employeeUl.appendChild(li); // Li nach Ul einfügen
+        for (let i = 0; i < list.length; i++) {
+            // Listen-Element
+            const emp = list[i];
+            const li = document.createElement("li"); // li erstellen
+            li.textContent = "ID: " + emp.id + " " +emp.firstname + " " + emp.lastname + " "; //Text einfügen
+            // Edit-Button
+            const editBtn = document.createElement("button"); // edit Button erstellen
+            editBtn.textContent = "edit"; //Text einfügen
+            editBtn.onclick = () => { // onclick Attribut zuweisen
+                this.displayEmployee(emp, i);
+            };
+            // Remove-Button
+            const removeBtn = document.createElement("button"); // remove Button erstellen
+            removeBtn.textContent = "remove"; // Text einfügen
+            removeBtn.onclick = () => { // onclick Attribut zuweisen
+                this.employeeModel.removeEmployee(i);
+                this.updateList();
+            };
+            // Elemente einfügen
+            li.appendChild(editBtn); // Buttons nach Li einfügen
+            li.appendChild(removeBtn);
+            this.employeeUl.appendChild(li); // Li nach Ul einfügen
         }
+        // Anzeige für Total Salary aktualisieren
+        const totalSal = this.employeeModel.getTotalSal();
+        this.totalSalOutput.textContent = (`Total Salary of all Employees: $ ${totalSal}!`);
     }
 }

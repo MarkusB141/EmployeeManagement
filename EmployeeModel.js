@@ -44,4 +44,8 @@ export class EmployeeModel{
     getAllEmployees(){ 
         return this.employeeList; 
     }
+
+    getTotalSal(){
+        return this.employeeList.reduce((sum, emp) => sum + emp.salary, 0);
+    }
 }
