@@ -6,30 +6,37 @@
     <script type="module" src="main.js" defer></script>
     <!-- type="module" ermöglicht es mit import/export zu arbeiten (defer normal wegen module nicht nötig)-->
     <!-- https://www.w3schools.com/js/js_modules.asp -->
+    <link rel="stylesheet" href="style.css">
     <title>Employee Management</title>
 </head>
 <body>
     <h1>Employee Management</h1>
-
-    <label for="employeeDiv">Employees:</label>
-    <div id="employeeDiv">
-        <ul id="employeeUl"></ul>
-        <span id="totalSalOutput"></span>
+    <div class="container">
+        <div id="employeeDiv">
+            <h2>Employees:</h2>
+            <ul id="employeeUl"></ul>
+            <span id="totalSalOutput"></span>
+        </div>
+        <div id="addDiv">
+            <h2>Add Employee</h2>
+            <div>
+                <label for="firstnameInput">First name: </label>
+                <input type="text" id="firstnameInput">
+            </div>
+            <div>
+                <label for="lastnameInput">Last name: </label>
+                <input type="text" id="lastnameInput">
+            </div>
+            <div>
+                <label for="roleInput">Role: </label>
+                <input type="text" id="roleInput">
+            </div>
+            <div>
+                <label for="salaryInput">Salary: </label>
+                <input type="number" id="salaryInput">
+            </div>
+            <button id="addButton">ADD</button>
+        </div>
     </div>
-    <br>
-
-    <label for="addDiv">Add Employee</label>
-    <div id="addDiv">
-        <label for="firstnameInput">First name: </label>
-        <input type="text" id="firstnameInput"><br>
-        <label for="lastnameInput">Last name: </label>
-        <input type="text" id="lastnameInput"><br>
-        <label for="roleInput">Role: </label>
-        <input type="text" id="roleInput"><br>
-        <label for="salaryInput">Salary: </label>
-        <input type="number" id="salaryInput"><br>
-        <button id="addButton">ADD</button>
-    </div>
-
 </body>
 </html>

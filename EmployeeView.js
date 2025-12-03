@@ -72,13 +72,13 @@ export class EmployeeView{
             li.textContent = "ID: " + emp.id + " " +emp.firstname + " " + emp.lastname + " "; //Text einfügen
             // Edit-Button
             const editBtn = document.createElement("button"); // edit Button erstellen
-            editBtn.textContent = "edit"; //Text einfügen
+            editBtn.textContent = "Edit"; //Text einfügen
             editBtn.onclick = () => { // onclick Attribut zuweisen
                 this.displayEmployee(emp, i);
             };
             // Remove-Button
             const removeBtn = document.createElement("button"); // remove Button erstellen
-            removeBtn.textContent = "remove"; // Text einfügen
+            removeBtn.textContent = "Remove"; // Text einfügen
             removeBtn.onclick = () => { // onclick Attribut zuweisen
                 this.employeeModel.removeEmployee(i);
                 this.updateList();
@@ -90,6 +90,6 @@ export class EmployeeView{
         }
         // Anzeige für Total Salary aktualisieren
         const totalSal = this.employeeModel.getTotalSal();
-        this.totalSalOutput.textContent = (`Total Salary of all Employees: $ ${totalSal}!`);
+        this.totalSalOutput.textContent = (`Total Salary of all Employees: $${totalSal.toFixed(2)}`);
     }
 }
