@@ -3,7 +3,7 @@ Das Projekt entstand im Rahmen für Vorbereitungen auf eine Prüfung.
 Ziel war es, praktische Erfahrung in Softwarearchitektur, Clean Code und der Verwendung von Local Storage zu sammeln.
 
 ## Lernziele
-- Umsetzung einer sauberen Layered Architeczure
+- Umsetzung einer sauberen Layered Architecture
 - Separation of Concerns
 - Einsatz Dependency Injection
 - arbeiten mit localStorage
