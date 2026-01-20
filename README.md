@@ -6,7 +6,7 @@ Ziel war es, praktische Erfahrung in Softwarearchitektur, Clean Code und der Ver
 - Umsetzung einer sauberen Layered Architecture
 - Separation of Concerns
 - Einsatz Dependency Injection
-- arbeiten mit localStorage
+- Arbeiten mit localStorage
 - Fokus auf Clean Code (KISS-Prinzip)
 
 ## Projektbeschreibung
