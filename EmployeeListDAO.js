@@ -24,13 +24,13 @@ export class EmployeeListDAO{
     loadAll(){
         // JSON aus dem Local Storage holen
         const json = localStorage.getItem(this.#keyEmp);
-        // Absicherung, falls nichts im Local Storage noch nichts vorhanden ist
+        // Absicherung, falls im Local Storage noch nichts vorhanden ist
         if (!json){
             return [];
         }
         // vom JSON bekomm ich meine Plain List (einfaches Objekt) 
         const plainList = JSON.parse(json);
-        // aus Plain List wieder mein Objekt erstellen (benötige dazu mein import { Employee })
+        // aus Plain List wieder mein Objekt erstellen
         return plainList;
     }
 

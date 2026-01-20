@@ -15,10 +15,10 @@ export class EmployeeView{
         this.totalSalOutput = document.getElementById("totalSalOutput");
         // Button bekommt click Funktion zugewiesen
         this.addButton.addEventListener("click", () => {
-            // try catch eingebaut wegen Fehlermeldung durch erstellen sines Employees (salary < 0)
+            // try catch eingebaut wegen Fehlermeldung durch erstellen eines Employees (salary < 0)
             try{ 
                 const employeeData = this.readEmployee();
-                // Check ob Bearbeitungs-Modus oder Neu_erstellen-Modus
+                // Check ob "Bearbeitungs-Modus" oder "Neu_erstellen-Modus"
                 if (this.currentIndex === null) {
                     //Neuer Employee
                     this.employeeModel.addEmployee(employeeData);
@@ -37,7 +37,6 @@ export class EmployeeView{
                 alert(e.message)
             }
         });
-
         this.updateList();
     }
 
@@ -48,9 +47,9 @@ export class EmployeeView{
         this.role.value = emp.role;
         this.salary.value = emp.salary;
         // Wechsel in Bearbeitungsmodus:
-        this.currentIndex = i; // merken welcher eintrag bearbeitet wird
+        this.currentIndex = i; // merken welcher Eintrag bearbeitet wird
     }
-    // readEmployee gibt nur Objekt Daten zurück. Damit Model dann Objekt erstellen kann
+    // readEmployee gibt nur Objekt Daten zurück. Damit das Model dann ein Objekt erstellen kann
     readEmployee(){
         return {
             firstname: this.firstname.value,
@@ -84,9 +83,9 @@ export class EmployeeView{
                 this.updateList();
             };
             // Elemente einfügen
-            li.appendChild(editBtn); // Buttons nach Li einfügen
+            li.appendChild(editBtn); // Buttons nach li einfügen
             li.appendChild(removeBtn);
-            this.employeeUl.appendChild(li); // Li nach Ul einfügen
+            this.employeeUl.appendChild(li); // li nach ul einfügen
         }
         // Anzeige für Total Salary aktualisieren
         const totalSal = this.employeeModel.getTotalSal();

@@ -1,5 +1,4 @@
-// import des Value Objekts im Model, da es schöner ist wenn Model das Objekt erstellt und nicht die View
-import { Employee } from "./Employee.js";
+import { Employee } from "./Employee.js"; // import des Value Objekts im Model
 
 export class EmployeeModel{
     constructor(employeeListDAO){
@@ -18,14 +17,8 @@ export class EmployeeModel{
     }
 
     addEmployee(employeeData){
-        // Prüfung auf doppelte ID nicht mehr nötig da automatische Id Zuweisung
-        //for(let i=0; i<this.employeeList.length; i++){
-        //    if(this.employeeList[i].id === employeeData.id){
-        //        throw new Error("Diese ID exestiert bereits")
-        //    }
-        //}
         this.employeeList.push(this.createEmployee(employeeData)); // View übergibt employee, Model pusht in Liste
-        this.employeeListDAO.saveAll(this.employeeList); // DAO Speichert
+        this.employeeListDAO.saveAll(this.employeeList); // DAO speichert
     }
 
     updateEmployee(index, employeeData){
